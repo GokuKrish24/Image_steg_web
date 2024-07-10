@@ -19,3 +19,16 @@ dropArea.addEventListener("drop",function(e){
     inputFile.files = e.dataTransfer.files;
     uploadImage();
 });
+
+const radioButtons = document.querySelectorAll('input[name="etype"]');
+for(const radioButton of radioButtons){
+    radioButton.addEventListener('change', showSelected);
+}  
+
+function showSelected(e) {
+    if (this.value == "Encryption") {
+        document.getElementById("text-box").style.display = '';
+    } else if (this.value == "Decryption") {
+        document.getElementById("text-box").style.display = 'none';
+    }
+}
